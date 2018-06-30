@@ -56,6 +56,8 @@
                 $('#explanation').html('<strong><font color="darkgreen">'+correctText+'! &#10004;</font><br/></strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
                 score++;
             } else {
+                var correctIndex = 0;
+                $('.choice').eq(correctIndex).css({'background-color':'lightgreen'});
                 $('.choice').eq(choice).css({'background-color':'#D92623'});
                 $('#explanation').html('<strong><font color="darkred">'+wrongText+' &#10008;</font><br/></strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
             }
