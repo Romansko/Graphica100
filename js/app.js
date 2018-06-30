@@ -307,7 +307,7 @@
     
 /************************************* MAIN **********************************************************/
     const Q_IN_QUIZ = 10;
-    var img100addr = 'https://cdn140.picsart.com/240883105038212.png';
+    var img100addr = "img/100.png"
     var numberOfQuestions;
     var nextQuestionText, quiztitle, correctText, cheers;
     var checkAnswer, questionText, questionTextOf, doneQuizText1, doneQuizText2, doneQuizText3, doneQuizText4;
