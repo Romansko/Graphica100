@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head > 
+      <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * filesystem: data: gap: https://ssl.gstatic.com content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" media="all" href="css/app.css">
+        <title>Graphica100</title>
+        <!-- JQuery v3.3.1 -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <!-- firebase v4.10.0 -->
+        <script src="js/firebase-v4.10.0.js"></script>
+        <!-- app logics -->
+        <script src="js/app.js"></script>
+    </head>
+    
+    <body>
+
+        <div class="bgbg" >
+            <div id="frame" role="content"></div>
+            <hr/>
+            <div id="myProgress">
+                <div id="loader"></div>
+                <div align="center" id="fetchingQ">Fetching questions from server..</div>
+                <!-- <div id="myBar">0%</div> -->
+            </div>
+        </div>
+        <br/>
+        
+        <div align="center">
+            <hr/><button class="simpleBtn" id="newquiz" onClick="loaderFunction()">Load New Quiz</button>
+            <hr/><br />Application made by RK Code Solution © 2018
+        </div>
+        
+    </body>
+</html>
