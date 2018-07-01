@@ -45,13 +45,16 @@
             setupButtons();
         }
 
+
         /**
          * After a selection is submitted, checks if its the right answer
          *
          * @param {choice} number The li zero-based index of the choice picked
          */
         function processQuestion(choice){
+            userQuestion = quiz[currentquestion];
             var choiceString = quiz[currentquestion]['choices'][choice];
+            userChoice = choiceString;
             var correctString = quiz[currentquestion]['correct'];
             if(choiceString == correctString){
                 $('.choice').eq(choice).css({'background-color':'#50D943'});
@@ -220,6 +223,7 @@
         if (i == Q_IN_QUIZ) {
             document.getElementById("myProgress").style.display = "none";
             document.getElementById("newquiz").style.display = "block";
+            document.getElementById("reportMistake").style.display = "block";
             document.getElementById("frame").style.display = "block";
             init();
             return;
@@ -271,7 +275,7 @@
     }
 
     function initQuiz(){
-
+        askSupport = 'נא להסביר מה הבעיה';
         rootRef = fb.database().ref('hebrew');
         questionText = 'שאלה';
         questionTextOf = 'מתוך';
@@ -285,6 +289,7 @@
         correctText = 'נכון';
         wrongText = 'טעות!'
         $("#newquiz").text('טען בוחן חדש');
+        $("#reportMistake").text('דווח טעות');
         $("#fetchingQ").text('טוען שאלות מהשרת..');
         document.body.style ="text-align:right;unicode-bidi:bidi-override; direction:rtl;"
         loaderFunction();
@@ -317,6 +322,7 @@
     var checkAnswer, questionText, questionTextOf, doneQuizText1, doneQuizText2, doneQuizText3, doneQuizText4;
     var currentquestion = 0, score = 0, submt = true, picked, flag = true;
     var quiz = [], qSet = [];
+
    // var progBar;
    // var progress = 0;
     var rootRef;
@@ -339,14 +345,26 @@
         initQuiz();
     };
     
-
+    var userChoice, userQuestion;
+    var askSupport;
+    function reportMistake()
+    {
+        var subject = "Graphica100 - Question Error";
+        var body = "";
+        body += "Question: " + userQuestion.question + "\n\n";
+        body += "Correct Answer: " + userQuestion.correct + "\n\n";
+        body += "Answers:\n";
+        body += "\t"+userQuestion.choices[0]+"\n";
+        body += "\t"+userQuestion.choices[1]+"\n";
+        body += "\t"+userQuestion.choices[2]+"\n";
+        body += "\t"+userQuestion.choices[3]+"\n\n";
+        body += "Explanation: "+userQuestion.explanation + "\n\n";
+        body += "User choice: " + userChoice + "\n\n";
+        body += "Please Fix this please!!!";
+        var mailString = 'mailto:RKCodeSolution@gmail.com?subject='+
+            subject+'&body='+encodeURIComponent(body);
+        alert(askSupport);
+        window.open(mailString);
+    }
 
    
-
-     
-   
-   
-    
-  
- 
-  
