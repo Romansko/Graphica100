@@ -308,6 +308,7 @@
         //progBar.innerHTML = progress.toFixed(2) + "%";
         document.getElementById("myProgress").style.display = "block";
         document.getElementById("newquiz").style.display = "none";
+        document.getElementById("reportMistake").style.display = "none";
         document.getElementById("frame").style.display = "none";
         //makeProgress();
         /// get number of questions
@@ -349,6 +350,10 @@
     var askSupport;
     function reportMistake()
     {
+        if (userQuestion == undefined)
+        {
+            userQuestion = quiz[currentquestion];
+        }
         var subject = "Graphica100 - Question Error";
         var body = "";
         body += "Question: " + userQuestion.question + "\n\n";
