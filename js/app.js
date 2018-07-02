@@ -10,7 +10,7 @@
           return $(document.createElement('div')).text(value).html();
         }
 
-        /**
+         /**
          * This will add the individual choices for each question to the ul#choice-block
          *
          * @param {choices} array The choices from each question
@@ -18,8 +18,12 @@
         function addChoices(choices){
             if(typeof choices !== "undefined" && $.type(choices) == "array"){
                 $('#choice-block').empty();
+                var j=0;
                 for(var i=0;i<choices.length; i++){
-                    $(document.createElement('li')).addClass('choice choice-box').attr('data-index', i).text(choices[i]).appendTo('#choice-block');                    
+                    if (choices[i] != "$") {
+                    $(document.createElement('li')).addClass('choice choice-box').attr('data-index', j).text(choices[i]).appendTo('#choice-block');  
+                    j++;
+                    }
                 }
             }
         }
