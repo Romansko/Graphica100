@@ -255,7 +255,7 @@
         // All at once
         rootRef.once('value', function(snapshot){
             numberOfQuestions = snapshot.numChildren();
-           
+            $("#qNumText").text(qInDB+numberOfQuestions);
             for (var i=0; i<Q_IN_QUIZ; ++i){
                 var randQ = getRandomQNum(numberOfQuestions);
                 //console.log("rand = " + randQ);
@@ -292,6 +292,7 @@
         quiztitle = '100 גרפיקה';
         correctText = 'נכון';
         wrongText = 'טעות!'
+        qInDB = 'סך שאלות במסד: ';
         $("#newquiz").text('טען בוחן חדש');
         $("#reportMistake").text('דווח טעות');
         $("#fetchingQ").text('טוען שאלות מהשרת..');
@@ -323,7 +324,7 @@
     const Q_IN_QUIZ = 10;
     var img100addr = "img/100.png"
     var numberOfQuestions;
-    var nextQuestionText, quiztitle, correctText, cheers;
+    var nextQuestionText, quiztitle, correctText, cheers, qInDB;
     var checkAnswer, questionText, questionTextOf, doneQuizText1, doneQuizText2, doneQuizText3, doneQuizText4;
     var currentquestion = 0, score = 0, submt = true, picked, flag = true;
     var quiz = [], qSet = [];
