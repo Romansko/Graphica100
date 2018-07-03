@@ -57,10 +57,9 @@
          */
         function processQuestion(choice){
             userQuestion = quiz[currentquestion];
-            var choiceString = quiz[currentquestion]['choices'][choice];
-            userChoice = choiceString;
+            userChoice = $('.choice').eq(choice).text();
             var correctString = quiz[currentquestion]['correct'];
-            if(choiceString == correctString){
+            if(userChoice == correctString){
                 $('.choice').eq(choice).css({'background-color':'#50D943'});
                 $('#explanation').html('<strong><font color="darkgreen">'+correctText+'! &#10004;</font><br/></strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
                 score++;
