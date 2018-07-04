@@ -61,25 +61,13 @@
             var correctString = quiz[currentquestion]['correct'];
             if(userChoice == correctString){
                 $('.choice').eq(choice).css({'background-color':'#50D943'});
-                if (quiz[currentquestion]['explanation'] != '$')
-                {
-                $('#explanation').html('<strong><font color="darkgreen">'+correctText+'! &#10004;</font><br/></strong> ' + htmlEncode(quiz[currentquestion]['explanation']));    
-                }
-                else{
-                $('#explanation').html('<strong><font color="darkgreen">'+correctText+'! &#10004;</font><br/></strong> ');    
-                }
+                $('#explanation').html('<strong><font color="darkgreen">'+correctText+'! &#10004;</font><br/></strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
                 score++;
             } else {
                 var correctIndex = quiz[currentquestion]['choices'].indexOf(correctString);
                 $('.choice').eq(correctIndex).css({'background-color':'lightgreen'});
                 $('.choice').eq(choice).css({'background-color':'#D92623'});
-                if (quiz[currentquestion]['explanation'] != '$')
-                {
                 $('#explanation').html('<strong><font color="darkred">'+wrongText+' &#10008;</font><br/></strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
-                }
-                else{
-                    $('#explanation').html('<strong><font color="darkred">'+wrongText+' &#10008;</font><br/></strong> ');
-                }
             }
             currentquestion++;
             $('#submitbutton').html(nextQuestionText+' &raquo;').on('click', function(){
