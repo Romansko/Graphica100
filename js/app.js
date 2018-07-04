@@ -115,8 +115,8 @@
             $('#submitbutton').remove();
             $('#question').text(doneQuizText1 + score + doneQuizText2 + quiz.length + doneQuizText3+doneQuizText4);
             var grade = Math.round(score/quiz.length * 100);
-            var gradeColor;
-            var excel = false;
+            var gradeColor = 'black';
+            var cheers = "";
             if (grade < 56)
             {
                 cheers = 'נכשלת. צריך לעבוד על זה..';
@@ -126,7 +126,6 @@
             {
                 cheers = 'פיייי יא אללה יש לנו מצטיין כאן';
                 gradeColor = 'darkgreen'
-                excel = true;
             }
             $(document.createElement('gradeH')).css({'text-align':'center', 'font-size':'4em', 'color': gradeColor}).text(grade).insertAfter('#question');
             $(document.createElement('space')).html('<br/>').insertAfter('gradeH');
@@ -323,7 +322,7 @@
     const Q_IN_QUIZ = 10;
     var img100addr = "img/100.png"
     var numberOfQuestions;
-    var nextQuestionText, quiztitle, correctText, cheers, qInDB;
+    var nextQuestionText, quiztitle, correctText, qInDB;
     var checkAnswer, questionText, questionTextOf, doneQuizText1, doneQuizText2, doneQuizText3, doneQuizText4;
     var currentquestion = 0, score = 0, submt = true, picked, flag = true;
     var quiz = [], qSet = [];
