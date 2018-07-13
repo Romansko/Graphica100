@@ -109,6 +109,7 @@
          * Quiz ends, display a message.
          */
         function endQuiz(){
+            $('#question-Image').empty();
             $('#explanation').empty();
             $('#question').empty();
             $('#choice-block').empty();
