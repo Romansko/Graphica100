@@ -319,7 +319,7 @@
     }
     
 /************************************* MAIN **********************************************************/
-    const Q_IN_QUIZ = 10;
+    const Q_IN_QUIZ = 15;
     var img100addr = "img/100.png"
     var numberOfQuestions;
     var nextQuestionText, quiztitle, correctText, qInDB;
