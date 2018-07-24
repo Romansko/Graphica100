@@ -34,6 +34,7 @@ function addChoices(choices) {
  * Resets all of the fields to prepare for next question
  */
 function nextQuestion() {
+    $('#question-Image').css({ zoom: 1, '-moz-transform': 'scale(1)' });
     submt = true;
     $('#explanation').empty();
     $('#question').text(quiz[currentquestion]['question']);
@@ -44,6 +45,17 @@ function nextQuestion() {
         } else {
             $('#question-Image').attr('src', quiz[currentquestion]['Image']).attr('alt', htmlEncode(quiz[currentquestion]['question']));
         }
+        var clicked = false;
+        $('#question-Image').click(function () {
+            if (clicked) {
+                $('#question-Image').css({ zoom: 1, '-moz-transform': 'scale(1)' });
+                clicked = false;
+            }
+            else {
+                $('#question-Image').css({ zoom: 5, '-moz-transform': 'scale(3)' });
+                clicked = true;
+            }
+        });
     } else {
         $('#question-Image').remove();
     }
