@@ -319,7 +319,7 @@ function reportMistake() {
 
 /************************************* MAIN **********************************************************/
 const Q_IN_QUIZ = 15;
-var img100addr = "https://raw.githubusercontent.com/Romansko/Graphica100/master/img/100.png";
+var img100addr = "https://raw.githubusercontent.com/Romansko/Graphica100/master/img/001.png";
 var numberOfQuestions;
 var nextQuestionText, quiztitle, correctText, qInDB;
 var checkAnswer, questionText, questionTextOf, doneQuizText1, doneQuizText2, doneQuizText3, doneQuizText4;
