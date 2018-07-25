@@ -124,7 +124,7 @@ function setupButtons() {
  * Quiz ends, display a message.
  */
 function endQuiz() {
-    $('#question-Image').empty();
+    $('#question-Image').remove();
     $('#explanation').empty();
     $('#question').empty();
     $('#choice-block').empty();
