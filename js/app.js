@@ -159,7 +159,7 @@ function init() {
     } else {
         $(document.createElement('h1')).text("Quiz").appendTo('#frame');
     }
-    $('h1').html('<b>גרפיקה </b><img src=' + img100addr + ' height="25" width="35">&emsp;<font color="purple">!!בהצלחה במבחן</font>');
+    $('h1').html('<b>גרפיקה </b><img src=' + img100addr + ' height="25" width="35">&emsp;<font color="purple">בהצלחה במבחן!!</font>');
 
     //add pager and questions
     if (typeof quiz !== "undefined" && $.type(quiz) === "array") {
