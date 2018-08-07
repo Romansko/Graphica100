@@ -3,51 +3,56 @@
 <!-- Based on https://github.com/jrue/JavaScript-Quiz by Jeremy Rue -->
 
 <html>
-    <head > 
-        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * filesystem: data: gap: https://ssl.gstatic.com content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" media="all" href="css/app.css">
-        <title>Graphica100</title>
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
-        <script src="js/app.js"></script>
-    </head>
-    
-    <body>
 
-        <div class="bgbg" >
-            <div id="frame" role="content"></div>
-            <hr/>
-            <div id="myProgress">
-                <div id="loader"></div>
-                <div align="center" id="fetchingQ">Fetching questions from server..</div>
-            </div>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * filesystem: data: gap: https://ssl.gstatic.com content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" media="all" href="css/app.css">
+    <title>Graphica100</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+
+    <div class="bgbg">
+        <div id="frame" role="content"></div>
+        <hr/>
+        <div id="myProgress">
+            <div id="loader"></div>
+            <div align="center" id="fetchingQ">Fetching questions from server..</div>
         </div>
-        <br/>
-        
-        <div align="center" > 
-            <hr/>
-            <table style="border-spacing: 30px;display:inline-block;">
-                <tr>
-                    <td>
-                        <button  class="simpleBtn" id="newquiz" onClick="populateQuiz()">Load New Quiz</button>
-                    </td>
-                    <td>
-                        <button  class="simpleBtn" id="reportMistake" onClick="reportMistake()">Report Mistake</button>
-                    </td>
-                    <td>
-                        <button  class="simpleBtn" id="genBulk" onClick="generateBulk()">Generate Bulk Questions</button>
-                    </td>
-                </tr>
-            </table>
+    </div>
+    <br/>
+
+    <div align="center">
+        <hr/>
+        <table style="border-spacing: 30px;display:inline-block;">
             <tr>
-            <div id="qNumText"></div>
+                <td>
+                    <button class="simpleBtn" id="newquiz" onClick="populateQuiz()">Load New Quiz</button>
+                </td>
+                <td>
+                    <button class="simpleBtn" id="reportMistake" onClick="reportMistake()">Report Mistake</button>
+                </td>
             </tr>
-            <hr/><br />RK Code Solution © 2018
-        </div>
-        
-    </body>
+            <tr>
+                <td>
+                    <button class="simpleBtn" id="genBulk" onClick="generateBulk()">Generate Bulk Questions</button>
+                </td>
+            </tr>
+        </table>
+        <tr>
+            <div id="qNumText"></div>
+        </tr>
+        <hr/>
+        <br />RK Code Solution © 2018
+    </div>
+
+</body>
+
 </html>
