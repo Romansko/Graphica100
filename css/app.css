@@ -48,6 +48,10 @@
                 padding: 2px;
                 font-size: 16px;
               }
+
+              center{
+                text-align: center;
+            }
 /******************************* LOADER STUFF ***********************************************/
 /* Center the loader */
 #loader {

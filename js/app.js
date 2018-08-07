@@ -238,6 +238,7 @@ function initQuiz() {
     qInDB = 'סך שאלות במסד: ';
     $("#newquiz").text('טען בוחן חדש');
     $("#reportMistake").text('דווח טעות');
+    $("#genBulk").text('תצוגת כל השאלות');
     $("#fetchingQ").text('טוען שאלות מהשרת..');
     document.body.style = "text-align:right;unicode-bidi:bidi-override; direction:rtl;"
     rootRef = fb.database().ref('hebrew');
@@ -247,9 +248,11 @@ function initQuiz() {
 function loadAllQuestions() {
     document.getElementById("myProgress").style.display = "block";
     document.getElementById("newquiz").style.display = "none";
+    document.getElementById("genBulk").style.display = "none";
     document.getElementById("reportMistake").style.display = "none";
     document.getElementById("frame").style.display = "none";
     allQuestions = [];
+    allQuestionsSave = [];
     usedQuestions = [];
     rootRef.once('value', function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
@@ -258,6 +261,7 @@ function loadAllQuestions() {
             var cArr = [chs.A, chs.B, chs.C, chs.D];
             var que = new CQuestion(cArr, data.correct, data.explanation, data.image, data.question);
             allQuestions.push(que);
+            allQuestionsSave.push(que);
         });
         $("#qNumText").text(qInDB + allQuestions.length);
         populateQuiz();
@@ -290,6 +294,7 @@ function populateQuiz() {
     document.getElementById("newquiz").style.display = "block";
     document.getElementById("reportMistake").style.display = "block";
     document.getElementById("frame").style.display = "block";
+    document.getElementById("genBulk").style.display = "block";
     init();
 }
 
@@ -317,6 +322,38 @@ function reportMistake() {
     window.open(mailString);
 }
 
+function generateBulk() {
+    if (allQuestionsSave == undefined || allQuestionsSave.length == 0) {
+        alert("No questions loaded");
+        return;
+    }
+    var bulkQuestionsString = "";
+    bulkQuestionsString += "<center><H1>Graphica 100</H1><br/>";
+    bulkQuestionsString += "<br/>תשובה נכונה מסומנת באדום.";
+    bulkQuestionsString += "<br/>הסבר נוסף מסומן בירוק.";
+    bulkQuestionsString += "<br/>סך שאלות:" + allQuestionsSave.length;
+    bulkQuestionsString += "<br/><br><button onClick=\"window.print();return false;\">הדפסה</button>"
+    bulkQuestionsString += "</center><br/><hr/>";
+    allQuestionsSave.forEach(function (q) {
+        console.log(q);
+        bulkQuestionsString += "<br/><b>" + q.question + "</b><br>";
+        if (q.Image != undefined && q.Image != "") {
+            bulkQuestionsString += "<br/><img src=\"" + q.Image + "\" " + "style=\"width:300px;height:150px;\" /><br/>";
+        }
+        q.choices.forEach(function (c) {
+            if (c == q.correct) {
+                bulkQuestionsString += "<br/><font color = \"red\">" + c + "</font><br/>";
+            }
+            else bulkQuestionsString += "<br/>" + c + "</br>";
+        });
+        bulkQuestionsString += "<br/><i><font color=\"green\">" + q.explanation + "</font></i>";
+        bulkQuestionsString += "<hr/>";
+    });
+    bulkQuestionsString += "<hr/><center>RK Code Solution © 2018</center>";
+    localStorage.setItem("bulkString", bulkQuestionsString);
+    window.open("bulk.html", "_self");
+}
+
 /************************************* MAIN **********************************************************/
 const Q_IN_QUIZ = 15;
 var img100addr = "https://raw.githubusercontent.com/Romansko/Graphica100/master/img/001.png";
@@ -324,7 +361,7 @@ var numberOfQuestions;
 var nextQuestionText, quiztitle, correctText, qInDB;
 var checkAnswer, questionText, questionTextOf, doneQuizText1, doneQuizText2, doneQuizText3, doneQuizText4;
 var currentquestion = 0, score = 0, submt = true, picked;
-var allQuestions = [], usedQuestions = [], quiz = [];
+var allQuestions = [], allQuestionsSave = [], usedQuestions = [], quiz = [];
 var rootRef;
 
 // Initialize Firebase
