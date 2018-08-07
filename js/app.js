@@ -351,7 +351,8 @@ function generateBulk() {
     });
     bulkQuestionsString += "<hr/><center>RK Code Solution © 2018</center>";
     localStorage.setItem("bulkString", bulkQuestionsString);
-    window.open("bulk.html", "_self");
+    var win = window.open("bulk.html");
+    win.focus();
 }
 
 /************************************* MAIN **********************************************************/
