@@ -2,4 +2,4 @@
 
 
 [>>>>>>>>>>>>>>>> click here to start <<<<<<<<<<<<<<<<](
-https://cdn.rawgit.com/Romansko/Graphica100/18b63678/index.html)
+https://romansko.github.io/Graphica100/)
