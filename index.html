@@ -18,43 +18,37 @@
 </head>
 
 <body>
-
     <div class="bgbg">
         <div id="frame" role="content"></div>
         <hr/>
         <div id="myProgress">
             <div id="loader"></div>
-            <div align="center" id="fetchingQ">Fetching questions from server..</div>
+            <div align="center" id="fetchingQ"></div>
         </div>
     </div>
     <br/>
 
-    <div align="center">
-        <hr/>
-        <table style="border-spacing: 30px;display:inline-block;">
+    <center>
+		<div id="qNumText"></div>
+		<hr/>
+        <br />RK Code Solution © 2019
+    </center>
+	<br/><br/><br/><br/>
+	 <div class="menu" align="center">
+        <table  align="center">
             <tr>
                 <td>
-                    <button class="simpleBtn" id="newquiz" onClick="populateQuiz()">Load New Quiz</button>
+                    <button class="simpleBtn" id="newquiz" onClick="populateQuiz()"></button>
                 </td>
                 <td>
-                    <button class="simpleBtn" id="reportMistake" onClick="reportMistake()">Report Mistake</button>
+                    <button class="simpleBtn" id="reportMistake" onClick="reportMistake()"></button>
                 </td>
-            </tr>
-            <tr>
                 <td>
-                    <button class="simpleBtn" id="genBulk" onClick="generateBulk()">Generate Bulk Questions</button>
+                    <button class="simpleBtn" id="genBulk" onClick="generateBulk()"></button>
                 </td>
             </tr>
         </table>
-        <tr>
-            <div id="qNumText"></div>
-        </tr>
-        <hr/>
-    </div>
-
-    <center>
-        <br />RK Code Solution © 2018
-    </center>
+	</div>
 </body>
 
 </html>
