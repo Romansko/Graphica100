@@ -1,5 +1,4 @@
 ## Graphica100
 
-
-[>>>>>>>>>>>>>>>> click here to start <<<<<<<<<<<<<<<<](
-https://cdn.rawgit.com/Romansko/Graphica100/18b63678/index.html)
+Click to start:
+[https://romansko.github.io/Graphica100](https://romansko.github.io/Graphica100)
